@@ -1,31 +1,9 @@
-import React from 'react';
+import React from '../../../../../Library/Caches/typescript/2.9/node_modules/@types/react/../../../Library/Caches/typescript/2.9/node_modules/@types/react';
 import { StyleSheet, Text, View } from 'react-native';
-import {Button} from 'react-native-elements';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import { createStackNavigator } from 'react-navigation';
+import {Button, Icon} from 'react-native-elements';
+import FontAwesome, { Icons } from 'react-native-fontawesome';
+import { createStackNavigator, createTabNavigator } from '../../../../../Library/Caches/typescript/2.9/node_modules/@types/react-navigationibrary/Caches/typescript/2.9/node_modules/@types/react-navigation';
 import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
-
-class NavBarIOSLight extends React.Component {
-  render() {
-    return (
-      <NavBar>
-        <NavButton onPress={() => alert('hi')}>
-          <NavButtonText>
-            {"Button"}
-          </NavButtonText>
-        </NavButton>
-        <NavTitle>
-          {"App"}
-        </NavTitle>
-        <NavButton onPress={() => alert('hi')}>
-          <NavButtonText>
-            {"Button"}
-          </NavButtonText>
-        </NavButton>
-      </NavBar>
-    )
-  }
-}
 
 class HomeScreen extends React.Component {
   render() {
@@ -44,7 +22,7 @@ class HomeScreen extends React.Component {
 class DashboardBody extends React.Component {
   render() {
     return (
-      <View>
+      <View style={styles.dashboardBody}>
         <Text>DASHBOARD</Text>
       </View>
     )
@@ -56,14 +34,13 @@ class DetailsScreen extends React.Component {
     return (
       <View>
         <NavBar>
-          <Text>HELLO</Text>
+          <NavBarIOSLight/>
         </NavBar>
         <DashboardBody/>
       </View>
     );
   }
 }
-
 const RootStack = createStackNavigator(
   {
     Home: HomeScreen,
@@ -79,6 +56,7 @@ export default class App extends React.Component {
     return <RootStack />;
   }
 }
+
 
 const styles = StyleSheet.create({
   container: {
@@ -96,5 +74,18 @@ const styles = StyleSheet.create({
   },
   containerStyle: {
     marginTop: 20
+  },
+  dashboardBody: {
+    marginTop: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  navBar: {
+    borderTopWidth: 0,
+    borderBottomColor: 'rgba(0, 0, 0, 0.1)',
+    borderBottomWidth: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   }
 });
